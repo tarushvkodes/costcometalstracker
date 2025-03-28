@@ -77,7 +77,7 @@ function createProductCard(product) {
     // Set innerHTML using template
     card.innerHTML = `
         <div class="product-image">
-            <img src="${product.image}" alt="${product.name}" onerror="this.src='images/placeholder.jpg'">
+            <img src="${product.image}" alt="${product.name}" onerror="this.src='https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1339816-847__1&recipeName=350'">
         </div>
         <div class="product-info">
             <div class="product-type">${product.type.toUpperCase()}</div>
@@ -236,7 +236,7 @@ function showNotification(message) {
     if (Notification.permission === "granted") {
         new Notification("Costco Metals Tracker", {
             body: message,
-            icon: "images/notification-icon.png"
+            icon: "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1535457-847__1&recipeName=350"
         });
     } 
     // Otherwise, request permission from the user
@@ -245,7 +245,7 @@ function showNotification(message) {
             if (permission === "granted") {
                 new Notification("Costco Metals Tracker", {
                     body: message,
-                    icon: "images/notification-icon.png"
+                    icon: "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1535457-847__1&recipeName=350"
                 });
             }
         });
@@ -254,5 +254,5 @@ function showNotification(message) {
 
 // Function to get placeholder images when real images aren't available
 function handleImageError(img) {
-    img.src = 'images/placeholder.jpg';
+    img.src = 'https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&imageId=1339816-847__1&recipeName=350';
 }
