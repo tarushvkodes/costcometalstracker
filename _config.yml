@@ -1,0 +1,7 @@
+# Costco Metals Tracker GitHub Pages Configuration
+
+name: Costco Metals Tracker
+description: Track silver and gold products currently in stock on Costco's website
+theme: jekyll-theme-minimal
+baseurl: "/costcometalstracker"
+url: ""

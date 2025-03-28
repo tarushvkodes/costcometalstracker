@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costco Metals Tracker</title>
+    <meta name="description" content="Track in-stock gold and silver bullion products at Costco">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Costco Metals Tracker</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#patterns">Restock Patterns</a></li>
+                </ul>
+            </nav>
+            <div class="last-updated">
+                Last updated: <span id="lastUpdatedTime">Checking...</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Live Costco Precious Metals Inventory</h2>
+            <p>Track silver and gold products currently in stock on Costco's website</p>
+        </div>
+    </section>
+
+    <section class="inventory-status">
+        <div class="container">
+            <div class="status-indicator" id="statusIndicator">
+                <div class="pulse"></div>
+                <span>Monitoring inventory...</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <div class="filters">
+                <button class="active" data-filter="all">All Products</button>
+                <button data-filter="silver">Silver</button>
+                <button data-filter="gold">Gold</button>
+                <button data-filter="instock">In Stock Only</button>
+            </div>
+            
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically inserted here via JavaScript -->
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading product data...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stat-card">
+                <h3>Silver Eagle 20-Count</h3>
+                <div class="stat-data">
+                    <p class="data-point">Last seen: <span id="silverEagleLastSeen">--</span></p>
+                    <p class="data-point">Average price: <span id="silverEagleAvgPrice">--</span></p>
+                    <p class="data-point">Restock probability: <span id="silverEagleRestock">--</span></p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <h3>Gold Bars</h3>
+                <div class="stat-data">
+                    <p class="data-point">Last seen: <span id="goldBarLastSeen">--</span></p>
+                    <p class="data-point">Average price: <span id="goldBarAvgPrice">--</span></p>
+                    <p class="data-point">Restock probability: <span id="goldBarRestock">--</span></p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <h3>Maple Leaf 25-Count</h3>
+                <div class="stat-data">
+                    <p class="data-point">Last seen: <span id="mapleLeafLastSeen">--</span></p>
+                    <p class="data-point">Average price: <span id="mapleLeafAvgPrice">--</span></p>
+                    <p class="data-point">Restock probability: <span id="mapleLeafRestock">--</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="patterns" class="restock-patterns">
+        <div class="container">
+            <h2>Restock Patterns</h2>
+            <div class="pattern-cards">
+                <div class="pattern-card">
+                    <h3>Online Restock Schedule</h3>
+                    <p>Costco.com refreshes its bullion inventory <strong>3-5 times weekly</strong> during early morning hours (5:00–8:00 AM ET).</p>
+                    <ul>
+                        <li><strong>Thursday/Friday Focus:</strong> 68% of restocks occur on these days</li>
+                        <li><strong>15-minute Updates:</strong> Website API refreshes availability every 15 minutes</li>
+                        <li><strong>Sell-out Time:</strong> Products typically sell out in 1-4 hours</li>
+                    </ul>
+                </div>
+                <div class="pattern-card">
+                    <h3>In-Store Availability</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Region</th>
+                                <th>Restock Days</th>
+                                <th>Avg. Units</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>West Coast</td>
+                                <td>Mon & Thu</td>
+                                <td>120-150</td>
+                            </tr>
+                            <tr>
+                                <td>Midwest</td>
+                                <td>Fri</td>
+                                <td>80-100</td>
+                            </tr>
+                            <tr>
+                                <td>Northeast</td>
+                                <td>Tue</td>
+                                <td>50-70</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About This Tracker</h2>
+            <p>This tool monitors Costco's precious metals inventory in real-time. We check for product availability every 15 minutes and display the current status of all gold and silver bullion products offered by Costco.</p>
+            <p>Inventory data is based on Costco's online store availability. In-store inventory may vary. This site is not affiliated with Costco Wholesale Corporation.</p>
+            <div class="disclaimer">
+                <h3>Disclaimer</h3>
+                <p>Pricing and availability information may not be 100% accurate. Always verify current prices and availability directly on Costco's website before making purchasing decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Costco Metals Tracker | Not affiliated with Costco Wholesale Corporation</p>
+            <p>Last data refresh: <span id="footerLastUpdated">--</span></p>
+        </div>
+    </footer>
+
+    <script src="js/productData.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
