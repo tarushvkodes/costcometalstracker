@@ -21,7 +21,7 @@
 }
 
 body {
-    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.5;
